@@ -5,7 +5,7 @@ public class CharacterControl : MonoBehaviour
 {
     public static int numberOfTreasures;
 
-    void start()
+    private void start()
     {
         numberOfTreasures = 0;
     }

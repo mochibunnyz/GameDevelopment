@@ -2,58 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Footstep : MonoBehaviour
+public class WalkingScript : MonoBehaviour
 {
 
-    public GameObject footstep;
-
+    public GameObject walking;
     // Start is called before the first frame update
     void Start()
     {
-        footstep.SetActive(false);
+        walking.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("w") && !Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey("w") && Input.GetKey(KeyCode.LeftShift))
         {
-            footSteps();
+            walkings();
         }
-        if (Input.GetKey("s") && !Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey("s") && Input.GetKey(KeyCode.LeftShift))
         {
-            footSteps();
+            walkings();
         }
-
 
         if (Input.GetKeyUp("w"))
         {
-            stopFootSteps();
+            stopWalkings();
         }
         if (Input.GetKeyUp("s"))
         {
-            stopFootSteps();
+            stopWalkings();
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            stopFootSteps();
+            stopWalkings();
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            stopFootSteps();
+            stopWalkings();
         }
-
-
     }
 
-    void footSteps()
+    void walkings()
     {
-        footstep.SetActive(true);
+        walking.SetActive(true);
     }
 
-    void stopFootSteps()
+    void stopWalkings()
     {
-        footstep.SetActive(false);
+        walking.SetActive(false);
     }
 }
