@@ -33,11 +33,7 @@ public class WalkingScript : MonoBehaviour
             stopWalkings();
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            stopWalkings();
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             stopWalkings();
         }

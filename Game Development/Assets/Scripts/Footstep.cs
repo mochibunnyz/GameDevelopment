@@ -35,11 +35,7 @@ public class Footstep : MonoBehaviour
             stopFootSteps();
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            stopFootSteps();
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             stopFootSteps();
         }

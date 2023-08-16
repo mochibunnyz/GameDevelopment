@@ -2891,6 +2891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footstep: {fileID: 1906652237}
+  deactivateDuration: 2
 --- !u!114 &326579286
 MonoBehaviour:
   m_ObjectHideFlags: 0
