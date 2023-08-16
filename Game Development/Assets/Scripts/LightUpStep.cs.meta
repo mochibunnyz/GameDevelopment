@@ -3,7 +3,10 @@ guid: 5a2b1db783b1f864f94aeadcf6da7e6f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - tiletouch: {instanceID: 0}
+  - steppedMaterial: {fileID: 2100000, guid: 492c9277a26b6014ea09a927ab52a75c, type: 2}
+  - BlackMaterial: {fileID: 2100000, guid: 819d686290129b742abc86d69b10bb15, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
