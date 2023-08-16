@@ -4,30 +4,45 @@ using UnityEngine;
 
 public class stepPuzzle : MonoBehaviour
 {
-    //private bool hasSolved;
+    
     //private bool hasLost;
-    LightUpStep step;
+    
+    public static int whiteStepNum;
+    public static bool hasBlackStep;
+
+    
 
     // Start is called before the first frame update
     void Start()
     {
         //hasLost = false;
-        //hasSolved = false;
+        
+        whiteStepNum = 0;
+        hasBlackStep = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (step.hasBlackStep == true)
+        if (hasBlackStep == true)
         {
             //hasLost = true;
             Debug.Log("Player has failed the Step Puzzle");
+            Destroy(gameObject);
         }
 
-        if (step.whiteStepNum == 10)
+        if (whiteStepNum == 10)
         {
             //hasSolved = true;
             Debug.Log("Player has solved the Step Puzzle");
+            TreasureSpawner.hasSolved = true;
+            //Destroy(gameObject);
+            //Instantiate(treasureToSpawn, transform.position, transform.rotation);
+            //enabled = false;
+
+
         }
     }
+
+
 }

@@ -7,32 +7,52 @@ public class LightUpStep : MonoBehaviour
     private Renderer rend;
     private bool hasSteppedOnce;
     public int whiteStepNum;
-    public bool hasBlackStep; 
+    public bool hasBlackStep;
+    public GameObject tiletouch;
+
+    //public Material Solved;
+    public Material steppedMaterial;
+    public Material BlackMaterial;
+
     // Start is called before the first frame update
     void Start()
     {
-        rend = GetComponent<Renderer>();
+        //rend = GetComponent<Renderer>();
         hasSteppedOnce = false;
-        hasBlackStep = false;
+        
+        tiletouch.SetActive(false);
 
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collider.tag == "Player" && hasSteppedOnce == false)
+        if(other.tag == "Player")
         {
-            rend.material.color = Color.white;
-            hasSteppedOnce = true;
-            whiteStepNum++; 
+            //rend.material.color = Color.white;
+            if (hasSteppedOnce == false)
+            {
+                transform.GetComponent<Renderer>().material = steppedMaterial;
+                hasSteppedOnce = true;
+                stepPuzzle.whiteStepNum++;
+                Debug.Log("player stepped on a tile");
+                tileTouch();
+            }
+            else
+            {
+                Debug.Log("player stepped on the same tile twice");
+                stepPuzzle.hasBlackStep = true;
+                transform.GetComponent<Renderer>().material = BlackMaterial;
+            }
         }
 
-        if (collider.tag == "Player" && hasSteppedOnce == true)
-        {
-            rend.material.color = Color.black;
-            hasBlackStep = false; 
-        }
+        
 
 
+    }
+
+    void tileTouch()
+    {
+        tiletouch.SetActive(true);
     }
 
     // Update is called once per frame

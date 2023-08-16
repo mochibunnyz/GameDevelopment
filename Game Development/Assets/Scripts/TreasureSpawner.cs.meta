@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0ba8af9088bf9894db5fd8f55ad6fd02
+guid: 5e57a7a5c17f7c84d8eeff5a376bc810
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - treasuretouch: {fileID: 4927730097958028269, guid: 04b367b20118ade409a7f914e4a0cc19, type: 3}
+  - treasureToSpawn: {fileID: 4927730097958028269, guid: 04b367b20118ade409a7f914e4a0cc19, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
