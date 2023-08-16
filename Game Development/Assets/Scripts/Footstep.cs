@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Footstep : MonoBehaviour
 {
+
     public GameObject footstep;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,8 @@ public class Footstep : MonoBehaviour
         {
             stopFootSteps();
         }
+
+        
     }
 
     void footSteps()
@@ -43,4 +47,6 @@ public class Footstep : MonoBehaviour
     {
         footstep.SetActive(false);
     }
+
+    
 }
