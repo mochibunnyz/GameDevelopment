@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 5e57a7a5c17f7c84d8eeff5a376bc810
+guid: dce2b789efc9c46449020814824dd58d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - treasureToSpawn: {fileID: 4927730097958028269, guid: 04b367b20118ade409a7f914e4a0cc19, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
