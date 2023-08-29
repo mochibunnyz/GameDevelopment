@@ -3,6 +3,12 @@ using UnityEngine;
 
 public class SimpleSampleCharacterControl : MonoBehaviour
 {
+    public Transform startPosition;
+    private void Start()
+    {
+        transform.position = startPosition.position;
+    }
+
     private enum ControlMode
     {
         /// <summary>
