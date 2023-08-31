@@ -1,12 +1,19 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SimpleSampleCharacterControl : MonoBehaviour
 {
     public Transform startPosition;
+    public static int numberOfTreasures;
+    public Text treasureText;
+
     private void Start()
     {
         transform.position = startPosition.position;
+        Time.timeScale = 1;
+        numberOfTreasures = 0;
+        
     }
 
     private enum ControlMode
@@ -116,6 +123,8 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         {
             m_jumpInput = true;
         }
+
+        treasureText.text = "Treasures: " + numberOfTreasures;
     }
 
     private void FixedUpdate()

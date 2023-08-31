@@ -29,8 +29,8 @@ public class PuzzleTreasureTouch : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            CharacterControl.numberOfTreasures += 1;
-            Debug.Log("Treasures Obtained:" + CharacterControl.numberOfTreasures);
+            SimpleSampleCharacterControl.numberOfTreasures += 1;
+            Debug.Log("Treasures Obtained:" + SimpleSampleCharacterControl.numberOfTreasures);
             Destroy(gameObject);
             
             treasureTouch();

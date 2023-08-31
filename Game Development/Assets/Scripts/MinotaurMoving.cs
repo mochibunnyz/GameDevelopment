@@ -14,6 +14,11 @@ public class MinotaurMoving : MonoBehaviour
     private int collisionCount = 0;
 
     public GameObject gameOverPanel;
+    public GameObject collisionPanel;
+    public float CPDuration = 5f;
+    private bool isActivated = false;
+
+    public GameObject collisionSound;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +31,8 @@ public class MinotaurMoving : MonoBehaviour
         }
 
         gameOverPanel.SetActive(false);
+        collisionPanel.SetActive(false);
+        collisionSound.SetActive(false);  
     }
 
     // Update is called once per frame
@@ -55,6 +62,15 @@ public class MinotaurMoving : MonoBehaviour
 
             collisionCount++;
 
+            
+
+            if (!isActivated)
+            {
+                isActivated = true;
+                ActivateForDuration();
+            }
+            
+
             if (collisionCount >= maxCollisions)
             {
                 // Implement game over logic here
@@ -64,5 +80,19 @@ public class MinotaurMoving : MonoBehaviour
                 gameOverPanel.SetActive(true);
             }
         }
+    }
+
+    private void ActivateForDuration()
+    {
+        collisionPanel.SetActive(true);
+        collisionSound.SetActive(true);
+        Invoke("DeactivateObject", CPDuration);
+    }
+
+    private void DeactivateObject()
+    {
+        collisionPanel.SetActive(false);
+        collisionSound.SetActive(false);
+        isActivated = false;
     }
 }
