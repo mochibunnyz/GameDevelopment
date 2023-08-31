@@ -3,11 +3,10 @@ using UnityEngine;
 
 public class CharacterControl : MonoBehaviour
 {
-    public static int numberOfTreasures;
 
     private void start()
     {
-        numberOfTreasures = 0;
+        
     }
 
     private enum ControlMode

@@ -5,11 +5,17 @@ using UnityEngine;
 public class TreasureTouch : MonoBehaviour
 {
     public GameObject treasuretouch;
+    public GameObject treasurePanel;
+    public float TDuration = 5f;
+    private bool isActivated = false;
+
+    public Transform storagePos;
 
     // Start is called before the first frame update
     void Start()
     {
         treasuretouch.SetActive(false);
+        treasurePanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -22,17 +28,33 @@ public class TreasureTouch : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            Destroy(gameObject);
-            CharacterControl.numberOfTreasures += 1;
-            Debug.Log("Treasures Obtained:" + CharacterControl.numberOfTreasures);
-            treasureTouch();
+            transform.position = storagePos.position;
+            SimpleSampleCharacterControl.numberOfTreasures += 1;
+            Debug.Log("Treasures Obtained:" + SimpleSampleCharacterControl.numberOfTreasures);
+
+            
+
+            if (!isActivated)
+            {
+                isActivated = true;
+                ActivateForDuration();
+            }
 
         }
     }
 
-    void treasureTouch()
+    private void ActivateForDuration()
     {
+        treasurePanel.SetActive(true);
         treasuretouch.SetActive(true);
+        Invoke("DeactivateObject", TDuration);
+    }
+
+    private void DeactivateObject()
+    {
+        treasurePanel.SetActive(false);
+        treasuretouch.SetActive(false);
+        isActivated = false;
     }
 
 
