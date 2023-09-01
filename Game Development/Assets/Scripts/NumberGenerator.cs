@@ -1,31 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 
 public class NumberGenerator : MonoBehaviour,IInteractable
 {
-    public TMP_Text canvasText;
+    public TMP_Text puzzleText;
 
-    public string textVariable = "Some Text 2";
-    public int TheNumber;
+   
     public void start()
     {
-        
+        puzzleText = GetComponent<TextMeshProUGUI>();
 
-    }
-    public void ChangeNumbers()
-    {
-        canvasText.text = textVariable;
     }
     public void Interact()
     {
-        //Debug.Log(Random.Range(0, 100));
-        ChangeNumbers();
-
-
+        puzzleText.text = "text";
     }
+
     
   
 }
