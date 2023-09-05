@@ -14,17 +14,6 @@ public class PuzzleTreasureTouch : MonoBehaviour
         treasuretouch.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (stepPuzzle.hasBlackStep == true)
-        {
-            
-            Debug.Log("Puzzle Treasure Destroyed");
-            Destroy(gameObject);
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
