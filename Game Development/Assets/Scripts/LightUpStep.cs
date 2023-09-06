@@ -17,7 +17,7 @@ public class LightUpStep : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //rend = GetComponent<Renderer>();
+        
         hasSteppedOnce = false;
         
         tiletouch.SetActive(false);
@@ -28,7 +28,7 @@ public class LightUpStep : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            //rend.material.color = Color.white;
+           
             if (hasSteppedOnce == false)
             {
                 transform.GetComponent<Renderer>().material = steppedMaterial;
@@ -42,6 +42,7 @@ public class LightUpStep : MonoBehaviour
                 Debug.Log("player stepped on the same tile twice");
                 stepPuzzle.hasBlackStep = true;
                 transform.GetComponent<Renderer>().material = BlackMaterial;
+                other.GetComponent<SimpleSampleCharacterControl>().transform.position = other.GetComponent<SimpleSampleCharacterControl>().tilePuzzleResetPosition.position;
             }
         }
 
@@ -59,5 +60,11 @@ public class LightUpStep : MonoBehaviour
     void Update()
     {
         
+    }
+    // Reset the tile to its initial state
+    public void ResetTile()
+    {
+        hasSteppedOnce = false;
+        tiletouch.SetActive(false);
     }
 }
