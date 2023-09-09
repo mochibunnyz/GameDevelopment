@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Game Development/Assets/LowPolyMedievalPropsLite/LowPolyMedievalPropsLite_2020.3.0_HDRP_v1.0.unitypackage.meta
+guid: 0f674545516fb454eacdfc1a12407951
+========
 guid: e49bc6749111eed498a4dd54424360bc
+>>>>>>>> main:Game Development/Assets/Scenes/puzzle 1 scene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

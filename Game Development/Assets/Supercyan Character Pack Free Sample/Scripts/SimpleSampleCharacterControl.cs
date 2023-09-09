@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class SimpleSampleCharacterControl : MonoBehaviour
 {
     public Transform startPosition;
+    public Transform tilePuzzleResetPosition;
     public static int numberOfTreasures;
     public Text treasureText;
 
