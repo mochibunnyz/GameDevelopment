@@ -5,7 +5,7 @@ public class ReplayAndQuit : MonoBehaviour
 {
     public void ReplayGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Main Scene");
     }
 
     public void QuitGame()

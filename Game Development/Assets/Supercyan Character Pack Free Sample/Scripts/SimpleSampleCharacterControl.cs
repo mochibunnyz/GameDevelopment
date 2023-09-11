@@ -8,13 +8,19 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     public Transform tilePuzzleResetPosition;
     public static int numberOfTreasures;
     public Text treasureText;
+    public static int numberOfLives;
+    public Text livesText;
+
+    private float originalMoveSpeed;
 
     private void Start()
     {
         transform.position = startPosition.position;
         Time.timeScale = 1;
         numberOfTreasures = 0;
-        
+        numberOfLives = 5;
+        originalMoveSpeed = m_moveSpeed;
+
     }
 
     private enum ControlMode
@@ -126,6 +132,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         }
 
         treasureText.text = "Treasures: " + numberOfTreasures;
+        livesText.text = "Lives: " + numberOfLives;
     }
 
     private void FixedUpdate()
@@ -233,5 +240,17 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         {
             m_animator.SetTrigger("Jump");
         }
+    }
+
+    public void SetMoveSpeed(float newMoveSpeed)
+    {
+        // Set the move speed to the new value
+        m_moveSpeed = newMoveSpeed;
+    }
+
+    public void ResetMoveSpeed()
+    {
+        // Reset the move speed to the original value
+        m_moveSpeed = originalMoveSpeed;
     }
 }

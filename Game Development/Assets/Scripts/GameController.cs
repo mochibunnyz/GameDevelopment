@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public float levelTime = 120.0f;
     private float currentTime;
     public Text timerText;
+    public GameObject gameOverPanel;
 
     void Awake()
     {
@@ -48,6 +49,13 @@ public class GameController : MonoBehaviour
 
     void GameOver()
     {
-        // Implement game over logic
+        Time.timeScale = 0;
+        gameOverPanel.SetActive(true);
+    }
+
+    public void ExtendTime(float timeToAdd)
+    {
+        currentTime += timeToAdd;
+        timerText.text = "Time Remaining: " + currentTime.ToString("F2");
     }
 }

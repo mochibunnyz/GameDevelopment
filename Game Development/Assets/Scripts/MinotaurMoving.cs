@@ -61,8 +61,9 @@ public class MinotaurMoving : MonoBehaviour
             transform.position = monsterStartPos.position;
 
             collisionCount++;
+            SimpleSampleCharacterControl.numberOfLives -= 1;
 
-            
+
 
             if (!isActivated)
             {
