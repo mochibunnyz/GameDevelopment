@@ -2,43 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
-public class SceneLoader : MonoBehaviour
+
+
+public class ShowPuzzle4 : MonoBehaviour
 {
-    
-    [SerializeField] private string newLevel;
+    public Canvas KeypadCanvas;
     [SerializeField] private TextMeshProUGUI interactionMessage;
-    
-    void Start()
+    public void Start()
     {
         interactionMessage.enabled = false;
     }
-    private void OnTriggerStay(Collider other)
+  
+    void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             interactionMessage.enabled = true;
+
             if (Input.GetKeyDown(KeyCode.E))
             {
-                SceneManager.LoadScene(newLevel);
+                interactionMessage.enabled = false;
+                KeypadCanvas.enabled = true;
                 
+               
                 Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-
-                
             }
         }
-        else
-        {
-            interactionMessage.enabled = false;
-        }
+    
+
     }
 
-    public void LoadScene(string sceneName)
+    public void EscapeButton()
     {
-        SceneManager.LoadScene(sceneName);
+        KeypadCanvas.enabled = false;
+        interactionMessage.enabled = true;
+       
+        //Unlock the cursor
+        Cursor.lockState = CursorLockMode.Locked;
     }
-
-  
 }
+
