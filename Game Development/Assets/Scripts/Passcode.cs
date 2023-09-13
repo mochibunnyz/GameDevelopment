@@ -6,7 +6,11 @@ using UnityEngine.UI;
 
 public class Passcode : MonoBehaviour
 {
-    [SerializeField] private GameObject RewardButton;
+    public Canvas KeypadCanvas;
+    public GameObject KeyPad;
+    public GameObject Sign;
+    public GameObject Fences;
+    public GameObject WorkingKeyPad;
     string Code = "302";
     string Nr = null;
     int NrIndex = 0;
@@ -25,7 +29,11 @@ public class Passcode : MonoBehaviour
         if(Nr == Code)
         {
             UiText.text = "Correct";
-            RewardButton.SetActive(true);
+            StartCoroutine(PuzzleSolved());
+            Cursor.visible = false;
+            Destroy();
+            
+
         }
         else if(Nr != Code)
         {
@@ -33,6 +41,18 @@ public class Passcode : MonoBehaviour
             
             
         }
+    }
+    public void Destroy()
+    {
+        Destroy(KeyPad);
+        Destroy(Sign);
+        Destroy(Fences);
+        Destroy(WorkingKeyPad);
+    }
+    private IEnumerator PuzzleSolved()
+    {
+        yield return new WaitForSeconds(2);
+        KeypadCanvas.enabled = false;
     }
 
     public void Delete()
