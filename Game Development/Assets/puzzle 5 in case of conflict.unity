@@ -21749,8 +21749,10 @@ MonoBehaviour:
   button7: {fileID: 766413818}
   button8: {fileID: 1141118055}
   button9: {fileID: 257989981}
-  buttonPadPanel: {fileID: 0}
-  puzzleBook: {fileID: 0}
+  buttonPadPanel: {fileID: 651921433}
+  puzzleBook: {fileID: 82044455}
+  treasureChest: {fileID: 1944939766}
+  puzzleSolved: 0
 --- !u!1001 &1832554502
 PrefabInstance:
   m_ObjectHideFlags: 0
