@@ -34,7 +34,12 @@ public class GameController : MonoBehaviour
         if (currentTime > 0)
         {
             currentTime -= Time.deltaTime;
-            timerText.text = "Time Remaining: " + currentTime.ToString("F2");
+
+            int minutes = Mathf.FloorToInt(currentTime / 60F);
+            int seconds = Mathf.FloorToInt(currentTime - minutes * 60);
+            string formattedTime = string.Format("{0:0}:{1:00}", minutes, seconds);
+
+            timerText.text = "Time Remaining: " + formattedTime;
         }
         else
         {
