@@ -20,7 +20,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         numberOfTreasures = 0;
         numberOfLives = 5;
         originalMoveSpeed = m_moveSpeed;
-        Cursor.lockState = CursorLockMode.Locked;
+        
 
     }
 
