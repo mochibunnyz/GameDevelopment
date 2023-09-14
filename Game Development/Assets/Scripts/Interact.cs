@@ -8,7 +8,6 @@ public class Interact : MonoBehaviour
     public Canvas PressE;
     public Canvas Puzzle;
     public RingPuzzleController ringPuzzleController; // Reference to the RingPuzzleController
-    //public CharacterController PlayerCharacter;
 
     void OnTriggerEnter(Collider EntityEnter)
     {
@@ -37,8 +36,7 @@ public class Interact : MonoBehaviour
             //hide the press E prompt
             PressE.enabled = false;
             Puzzle.enabled = false;
-            //remove access to cursor
-            //Cursor.lockState = CursorLockMode.Locked;
+
 
         }
 
@@ -56,13 +54,7 @@ public class Interact : MonoBehaviour
                 Debug.Log("The player press E");
                 Puzzle.enabled = true;
                 PressE.enabled = false;
-                //stop player from moving
-                //PlayerCharacter.enabled = false;
 
-                //stop enemy from moving
-
-                //give access to mouse cursor
-                //Cursor.lockState = CursorLockMode.None;
             }
             if(Input.GetKey(KeyCode.Escape))
             {
@@ -76,12 +68,6 @@ public class Interact : MonoBehaviour
                 //close canvas
                 Puzzle.enabled = false;
                 PressE.enabled = true;
-
-                //lock mouse
-                //Cursor.lockState = CursorLockMode.Locked;
-
-                //stop player from moving
-                //PlayerCharacter.enabled = true;
     }
 
     void HandlePuzzleSolved()
