@@ -19,6 +19,7 @@ public class buttonpad : MonoBehaviour
 
         public GameObject buttonPadPanel;
         public GameObject puzzleBook;
+
         // public GameObject treasureChest;
 
         // public bool puzzleSolved = false;
@@ -40,51 +41,16 @@ public class buttonpad : MonoBehaviour
 
         void Update()
         {
-                if (charHolder.text == "3")
-                {
-                        Debug.Log("wrong answer");
-                        resetPuzzle();
-                }
-
-                if (charHolder.text == "4")
-                {
-                        Debug.Log("wrong answer");
-                        resetPuzzle();
-                }
-
-                 if (charHolder.text == "7")
-                {
-                        Debug.Log("wrong answer");
-                        resetPuzzle();
-                }
-
-                if (charHolder.text == "8")
-                {
-                        Debug.Log("wrong answer");
-                        resetPuzzle();
-                }
-
 
         }
 
         void resetPuzzle()
         {
-                //show panel
-                buttonPadPanel.gameObject.SetActive(true);
-
                 //reset number in character holder
-                charHolder.text = charHolder.text + "";
+                charHolder.text = string.Empty;
+                Debug.Log("puzzle reset");
 
         }
-
-        // void onMouseDown()
-        // {
-        //         if(gameObject.tag == "puzzleBook")
-        //         {
-        //                 bool isActive = buttonPadPanel.activeSelf;
-        //                 buttonPadPanel.gameObject.SetActive(true);
-        //         }
-        // }
 
 
         public void b1()
@@ -158,57 +124,32 @@ public class buttonpad : MonoBehaviour
                     Debug.Log("correct");
                 }
                         
-                        
-                if (charHolder.text == "12")
+                else if (charHolder.text == "12")
                 {
                          Debug.Log("correct");
                 }
                 
-                if (charHolder.text == "125")
+                else if (charHolder.text == "125")
                 {
                         Debug.Log("correct");
                 }
                                                 
-                if (charHolder.text == "1256")
+                else if (charHolder.text == "1256")
                 {
                         Debug.Log("correct");
                 }
                                                         
-                if (charHolder.text == "12569")
+                else if (charHolder.text == "12569")
                 {
                         Debug.Log("correct");
                         buttonPadPanel.SetActive(false);
-                }
-                    //treasure appears
+
+                //treasure appears
                 //     puzzleSolved = true;
                 //     treasureChest.gameObject.SetActive(true);
+                }
 
                 else
-                {
-                    Debug.Log("wrong");
-                    resetPuzzle();
-                }
-
-
-                if (charHolder.text == "3")
-                {
-                    Debug.Log("wrong");
-                    resetPuzzle();
-                }
-
-                if (charHolder.text == "4")
-                {
-                    Debug.Log("wrong");
-                    resetPuzzle();
-                }
-
-                if (charHolder.text == "7")
-                {
-                    Debug.Log("wrong");
-                    resetPuzzle();
-                }
-
-                if (charHolder.text == "8")
                 {
                     Debug.Log("wrong");
                     resetPuzzle();
