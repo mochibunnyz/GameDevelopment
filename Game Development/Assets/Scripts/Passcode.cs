@@ -39,8 +39,9 @@ public class Passcode : MonoBehaviour
         else if(Nr != Code)
         {
             UiText.text = "Try again";
-            
-            
+            StartCoroutine(PuzzleWrong());
+
+
         }
     }
     public void Destroy()
@@ -55,6 +56,12 @@ public class Passcode : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         KeypadCanvas.enabled = false;
+    }
+
+    private IEnumerator PuzzleWrong()
+    {
+        yield return new WaitForSeconds(1);
+        Delete();
     }
 
     public void Delete()
