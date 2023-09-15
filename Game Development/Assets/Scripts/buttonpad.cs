@@ -20,24 +20,32 @@ public class buttonpad : MonoBehaviour
         public GameObject buttonPadPanel;
         public GameObject puzzleBook;
 
-        // public GameObject treasureChest;
-
-        // public bool puzzleSolved = false;
-
-        // public void OpenbuttonPadPanel()
-        // {
-        //         if(buttonPadPanel != null)
-        //         {
-        //                 bool isActive = buttonPadPanel.activeSelf;
-
-        //                 buttonPadPanel.SetActive(true);
-        //         }
-        // }
+        public GameObject treasureChest;
 
         void Start()
         {
-                buttonPadPanel.SetActive(true);
+                buttonPadPanel.SetActive(false);
         }
+
+        public void OpenbuttonPadPanel()
+        {
+                if(buttonPadPanel != null)
+                {
+                        buttonPadPanel.SetActive(true);
+
+                        Debug.Log("pressed");
+                }
+        }
+
+        // void onMouseDown OpenbuttonPadPanel()
+        // {
+        //         if (gameObject.tag == "puzzleBook")
+        //         {
+        //         buttonPadPanel.SetActive(true);
+
+        //         Debug.Log("pressed");
+        //         }
+        // }
 
         void Update()
         {
@@ -145,8 +153,7 @@ public class buttonpad : MonoBehaviour
                         buttonPadPanel.SetActive(false);
 
                 //treasure appears
-                //     puzzleSolved = true;
-                //     treasureChest.gameObject.SetActive(true);
+                    treasureChest.gameObject.SetActive(true);
                 }
 
                 else
