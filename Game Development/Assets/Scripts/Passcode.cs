@@ -11,6 +11,7 @@ public class Passcode : MonoBehaviour
     public GameObject Sign;
     public GameObject Fences;
     public GameObject WorkingKeyPad;
+    public RawImage ImageBackground;
     string Code = "302";
     string Nr = null;
     int NrIndex = 0;
@@ -48,6 +49,7 @@ public class Passcode : MonoBehaviour
         Destroy(Sign);
         Destroy(Fences);
         Destroy(WorkingKeyPad);
+        Destroy(ImageBackground);
     }
     private IEnumerator PuzzleSolved()
     {
