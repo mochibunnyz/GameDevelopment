@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21231,10 +21231,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba8af9088bf9894db5fd8f55ad6fd02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treasuretouch: {fileID: 0}
-  treasurePanel: {fileID: 0}
+  treasuretouch: {fileID: 2052290750}
+  treasurePanel: {fileID: 1738692907}
   TDuration: 5
-  storagePos: {fileID: 0}
+  storagePos: {fileID: 370141263}
 --- !u!1001 &861248802
 PrefabInstance:
   m_ObjectHideFlags: 0
