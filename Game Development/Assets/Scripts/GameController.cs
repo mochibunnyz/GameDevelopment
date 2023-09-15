@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     private float currentTime;
     public Text timerText;
     public GameObject gameOverPanel;
+    public bool gameStarted = false;
 
     void Awake()
     {
@@ -31,20 +32,24 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (currentTime > 0)
+            if (gameStarted)
         {
-            currentTime -= Time.deltaTime;
+            if (currentTime > 0)
+            {
+                currentTime -= Time.deltaTime;
 
-            int minutes = Mathf.FloorToInt(currentTime / 60F);
-            int seconds = Mathf.FloorToInt(currentTime - minutes * 60);
-            string formattedTime = string.Format("{0:0}:{1:00}", minutes, seconds);
+                int minutes = Mathf.FloorToInt(currentTime / 60F);
+                int seconds = Mathf.FloorToInt(currentTime - minutes * 60);
+                string formattedTime = string.Format("{0:0}:{1:00}", minutes, seconds);
 
-            timerText.text = "Time Remaining: " + formattedTime;
-        }
-        else
-        {
-            GameOver();
-        }
+                timerText.text = "Time Remaining: " + formattedTime;
+            }
+            else
+            {
+                GameOver();
+            }
+    }
+        
     }
 
     public void GameWin()

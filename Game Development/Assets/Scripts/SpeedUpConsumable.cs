@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpeedUpConsumable : MonoBehaviour
 {
     public float boostDuration = 20f;
-    public float boostSpeed = 20f;
+    public float boostSpeed = 10f;
 
     private bool isBoostActive = false;
     private float boostEndTime;
