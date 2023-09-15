@@ -26036,7 +26036,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -2, y: 200}
-  m_SizeDelta: {x: 100, y: 20}
+  m_SizeDelta: {x: 140, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &818617078
 MonoBehaviour:
@@ -33002,6 +33002,8 @@ MonoBehaviour:
   WorkingKeyPad: {fileID: 952993027}
   ImageBackground: {fileID: 1421497006}
   UiText: {fileID: 503469168}
+  CodeText: {fileID: 727724372}
+  OnSceneCode_Text: {fileID: 38187624}
 --- !u!1001 &1041411572
 PrefabInstance:
   m_ObjectHideFlags: 0
