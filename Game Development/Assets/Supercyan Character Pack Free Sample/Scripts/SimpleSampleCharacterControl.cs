@@ -12,6 +12,8 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     public Text livesText;
 
     private float originalMoveSpeed;
+    public Collider boundaryCollider;
+    private MinotaurMoving minotaurMoving;
 
     private void Start()
     {
@@ -20,7 +22,8 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         numberOfTreasures = 0;
         numberOfLives = 5;
         originalMoveSpeed = m_moveSpeed;
-        
+        minotaurMoving = FindObjectOfType<MinotaurMoving>();
+
 
     }
 
@@ -253,5 +256,23 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     {
         // Reset the move speed to the original value
         m_moveSpeed = originalMoveSpeed;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other == boundaryCollider)
+        {
+            minotaurMoving.moveSpeed = 5f;
+            minotaurMoving.playerInArea = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other == boundaryCollider)
+        {
+            minotaurMoving.moveSpeed = 2f;
+            minotaurMoving.playerInArea = false;
+        }
     }
 }
