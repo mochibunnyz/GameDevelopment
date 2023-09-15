@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Treasure
+  - puzzleBook
+  - buttonpadPanel
+  - buttonPadPanel
+  - treasureChest
   layers:
   - Default
   - TransparentFX
