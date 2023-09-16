@@ -5,12 +5,16 @@ using UnityEngine;
 public class Puzzle3TreasureTouch : MonoBehaviour
 {
     public GameObject treasuretouch;
-    public RingPuzzleController puzzleController;  // Reference to the RingPuzzleController script.
+    public RingPuzzleController puzzleController; // Reference to the RingPuzzleController script.
+    public GameObject treasurePanel; // Reference to the UI Panel you created.
+
+    private bool isActivated = false;
 
     void Start()
     {
-        gameObject.SetActive(false); // Hide the chest initially
         treasuretouch.SetActive(false);
+        treasurePanel.SetActive(false); // Hide the panel initially.
+        gameObject.SetActive(false); // Hide the chest initially
     }
 
     void Update()
@@ -29,14 +33,33 @@ public class Puzzle3TreasureTouch : MonoBehaviour
         {
             SimpleSampleCharacterControl.numberOfTreasures += 1;
             Debug.Log("Treasures Obtained:" + SimpleSampleCharacterControl.numberOfTreasures);
+
+            // Show the panel if not already activated
+            if (!isActivated)
+            {
+                isActivated = true;
+                ActivatePanelForDuration();
+            }
+
+            // Destroy the treasure chest
             Destroy(gameObject);
-            
-            treasureTouch();
         }
     }
 
-    void treasureTouch()
+    private void ActivatePanelForDuration()
     {
-        treasuretouch.SetActive(true);
+        treasurePanel.SetActive(true);
+
+        // Start a coroutine to hide the panel after 5 seconds
+        StartCoroutine(HidePanelAfterDelay(5f));
+    }
+
+    private IEnumerator HidePanelAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        treasurePanel.SetActive(false);
+        isActivated = false;
     }
 }
+
+
