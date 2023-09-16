@@ -44944,7 +44944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treasuretouch: {fileID: 1402263895}
   treasureChest: {fileID: 1402263895}
-  puzzleController: {fileID: 0}
+  puzzleController: {fileID: 1402263898}
 --- !u!114 &1402263898
 MonoBehaviour:
   m_ObjectHideFlags: 0
