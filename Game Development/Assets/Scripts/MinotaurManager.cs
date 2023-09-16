@@ -6,8 +6,14 @@ public class MinotaurManager : MonoBehaviour
 {
     public enum MinotaurState { PATROL, CHASE }
 
-    public Transform playerSpawnPoint; // Drag the player's spawn point here in the inspector
+    public float patrolSpeed = 3f;   // Default patrol speed
+    public float chaseSpeed = 4f;      // Speed during chase
 
+    public AudioSource collisionSound; // Drag your AudioSource with the collision sound here
+    public GameObject collisionPanel;  // Drag your collision panel here
+    public GameObject gameOverPanel;   // Drag your game over panel here
+
+    private UnityEngine.AI.NavMeshAgent agent;
     private PatrolScript patrolScript;
     private ChaseScript chaseScript;
     private MinotaurState currentState;
@@ -16,6 +22,7 @@ public class MinotaurManager : MonoBehaviour
     {
         patrolScript = GetComponent<PatrolScript>();
         chaseScript = GetComponent<ChaseScript>();
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     void Start()
@@ -39,9 +46,11 @@ public class MinotaurManager : MonoBehaviour
         {
             case MinotaurState.PATROL:
                 patrolScript.enabled = true;
+                agent.speed = patrolSpeed;
                 break;
             case MinotaurState.CHASE:
                 chaseScript.enabled = true;
+                agent.speed = chaseSpeed;
                 break;
         }
 
@@ -69,8 +78,30 @@ public class MinotaurManager : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             SimpleSampleCharacterControl.numberOfLives -= 1;
-            collision.gameObject.transform.position = playerSpawnPoint.position;
+
+            // Play Collision Sound
+            collisionSound.Play();
+
+            // Display Collision Panel
+            collisionPanel.SetActive(true);
+        
+            // Start the coroutine to hide the collision panel after 2 seconds.
+            StartCoroutine(HideCollisionPanelAfterTime(2f));
+
+            collision.gameObject.GetComponent<SimpleSampleCharacterControl>().transform.position = collision.gameObject.GetComponent<SimpleSampleCharacterControl>().startPosition.position;
+
+            if (SimpleSampleCharacterControl.numberOfLives <= 0)
+            {
+                gameOverPanel.SetActive(true);
+            }
+
             SetState(MinotaurState.PATROL);
         }
+    }
+
+    private IEnumerator HideCollisionPanelAfterTime(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        collisionPanel.SetActive(false);
     }
 }

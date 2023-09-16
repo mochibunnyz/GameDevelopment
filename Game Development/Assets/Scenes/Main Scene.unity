@@ -42666,7 +42666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4414871117303439921, guid: aef9a3e063e740f4d8100584de73ceb4, type: 3}
       propertyPath: m_Name
-      value: NavmeshMinotaur (1)
+      value: NavmeshMinotaur
       objectReference: {fileID: 0}
     - target: {fileID: 4414871117303439921, guid: aef9a3e063e740f4d8100584de73ceb4, type: 3}
       propertyPath: m_IsActive
@@ -78375,7 +78375,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fa98d9f4c7f7c4baa8fe13d8e9fc1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpawnPoint: {fileID: 326579284}
+  patrolSpeed: 3
+  chaseSpeed: 4
+  collisionSound: {fileID: 195506101}
+  collisionPanel: {fileID: 1994559205}
+  gameOverPanel: {fileID: 621374413}
 --- !u!114 &2135886763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78422,7 +78426,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
