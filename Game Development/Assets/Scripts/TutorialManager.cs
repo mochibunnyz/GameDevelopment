@@ -7,6 +7,7 @@ public class TutorialManager : MonoBehaviour
 {
     public GameObject[] tutorialCanvases;
     private int currentIndex = 0;
+    public bool wasGamePaused = false;
 
     private void Start()
     {
@@ -52,7 +53,7 @@ public class TutorialManager : MonoBehaviour
         }
     
         // Only resume the game if it's not paused
-        if (!PauseMenuController.isPaused)
+        if ((!wasGamePaused))
         {
             Time.timeScale = 1;
         }
@@ -64,4 +65,12 @@ public class TutorialManager : MonoBehaviour
         currentIndex = 0;  // Reset to the first canvas
         ShowCanvas(currentIndex);
     }
+
+    public void OpenTutorialFromGameStart()
+{
+    ShowCanvas(0); // Show the first canvas.
+    wasGamePaused = false;
+    Time.timeScale = 0;
+}
+
 }
