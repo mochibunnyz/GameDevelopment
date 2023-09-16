@@ -915,7 +915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed696beff2ac69f4f8fd997b1ca05fcb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed696beff2ac69f4f8fd997b1ca05fcb, type: 3}
       propertyPath: m_LocalScale.z
@@ -923,15 +923,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed696beff2ac69f4f8fd997b1ca05fcb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.42
+      value: -2.77
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed696beff2ac69f4f8fd997b1ca05fcb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.74
+      value: 0.32
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed696beff2ac69f4f8fd997b1ca05fcb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.85
+      value: -0.26
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed696beff2ac69f4f8fd997b1ca05fcb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26249,7 +26249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 327b0ab3214f05843b842047112610d2, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 327b0ab3214f05843b842047112610d2, type: 3}
       propertyPath: m_LocalScale.z
@@ -26257,15 +26257,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 327b0ab3214f05843b842047112610d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.34
+      value: -1.36
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 327b0ab3214f05843b842047112610d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.83
+      value: 3.61
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 327b0ab3214f05843b842047112610d2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 327b0ab3214f05843b842047112610d2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -34042,6 +34042,8 @@ MonoBehaviour:
   WorkingKeyPad: {fileID: 952993027}
   ImageBackground: {fileID: 1421497006}
   UiText: {fileID: 503469168}
+  CodeText: {fileID: 0}
+  OnSceneCode_Text: {fileID: 0}
 --- !u!1001 &1045802666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52415,6 +52417,7 @@ MonoBehaviour:
   levelTime: 600
   timerText: {fileID: 1736674245}
   gameOverPanel: {fileID: 621374413}
+  gameStarted: 0
 --- !u!4 &1629153403
 Transform:
   m_ObjectHideFlags: 0
@@ -54505,7 +54508,7 @@ MonoBehaviour:
   button9: {fileID: 936589346}
   buttonPadPanel: {fileID: 573109262}
   puzzleBook: {fileID: 124908558}
-  treasureChest: {fileID: 1402263895}
+  treasureChest: {fileID: 0}
 --- !u!1001 &1709558049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62310,6 +62313,8 @@ MonoBehaviour:
   collisionPanel: {fileID: 1994559205}
   CPDuration: 5
   collisionSound: {fileID: 830747231}
+  boundaryCollider: {fileID: 0}
+  playerInArea: 0
 --- !u!136 &1888914393
 CapsuleCollider:
   m_ObjectHideFlags: 0
