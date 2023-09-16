@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class buttonpad : MonoBehaviour
         public GameObject button3;
         public GameObject button4;
         public GameObject button5;
-        public GameObject button6;
+        public GameObject button6; 
         public GameObject button7;
         public GameObject button8;
         public GameObject button9;
@@ -22,31 +23,16 @@ public class buttonpad : MonoBehaviour
 
         public GameObject treasureChest;
 
+        public bool PuzzleSolved {get {return puzzleSolved;}}
+        public event Action OnPuzzleSolved;
+        private bool puzzleSolved = false;
+
+
         void Start()
         {
-                buttonPadPanel.SetActive(false);
+                buttonPadPanel.SetActive(true);
         }
-
-        public void OpenbuttonPadPanel()
-        {
-                if(buttonPadPanel != null)
-                {
-                        buttonPadPanel.SetActive(true);
-
-                        Debug.Log("pressed");
-                }
-        }
-
-        // void onMouseDown OpenbuttonPadPanel()
-        // {
-        //         if (gameObject.tag == "puzzleBook")
-        //         {
-        //         buttonPadPanel.SetActive(true);
-
-        //         Debug.Log("pressed");
-        //         }
-        // }
-
+        
         void Update()
         {
 
@@ -59,7 +45,6 @@ public class buttonpad : MonoBehaviour
                 Debug.Log("puzzle reset");
 
         }
-
 
         public void b1()
         {
@@ -149,11 +134,15 @@ public class buttonpad : MonoBehaviour
                                                         
                 else if (charHolder.text == "12569")
                 {
-                        Debug.Log("correct");
+                        Debug.Log("puzzle solved");
                         buttonPadPanel.SetActive(false);
+                        charHolder.text = string.Empty;
 
-                //treasure appears
-                    treasureChest.gameObject.SetActive(true);
+                        puzzleSolved = true;
+                        OnPuzzleSolved?.Invoke();
+
+                        //treasure appears
+                        treasureChest.gameObject.SetActive(true);
                 }
 
                 else
