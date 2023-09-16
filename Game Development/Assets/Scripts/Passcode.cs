@@ -23,6 +23,8 @@ public class Passcode : MonoBehaviour
     string TheCode = "HEW";
     public Text CodeText;
     public TextMeshProUGUI OnSceneCode_Text;
+    public Text AttemptText;
+    int Attempts = 3;
 
     public void CodeFunction(string Numbers)
     {
@@ -47,7 +49,8 @@ public class Passcode : MonoBehaviour
             UiText.text = "Try again";
             StartCoroutine(PuzzleWrong());
             WrongCounter++;
-
+            Attempts--;
+            AttemptText.text = "Attempts left: " + Attempts;
         }
 
         if (Nr != Code & WrongCounter == 3 & Case == 0)
@@ -59,6 +62,10 @@ public class Passcode : MonoBehaviour
             OnSceneCode_Text.text = TheCode;
             WrongCounter = 0;
             Case++;
+            Attempts = 3;
+            AttemptText.text = "Attempts left: " + Attempts;
+
+
 
         }
         if (Nr != Code & WrongCounter == 3 & Case == 1)
@@ -70,6 +77,8 @@ public class Passcode : MonoBehaviour
             OnSceneCode_Text.text = TheCode;
             WrongCounter = 0;
             Case++;
+            Attempts = 3;
+            AttemptText.text = "Attempts left: " + Attempts;
 
         }
         if (Nr != Code & WrongCounter == 3 & Case == 2)
@@ -81,6 +90,8 @@ public class Passcode : MonoBehaviour
             OnSceneCode_Text.text = TheCode;
             WrongCounter = 0;
             Case = 0;
+            Attempts = 3;
+            AttemptText.text = "Attempts left: " + Attempts;
 
         }
     }
