@@ -8,7 +8,6 @@ TagManager:
   - buttonpadPanel
   - buttonPadPanel
   - treasureChest
-  - MinotaurSpace
   layers:
   - Default
   - TransparentFX

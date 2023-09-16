@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MinotaurMoving : MonoBehaviour
 {
-    public float moveSpeed = 2f;
+    public float moveSpeed = 1f;
     public float rotationSpeed = 5f;
     private Transform playerTransform;
 
@@ -19,12 +19,6 @@ public class MinotaurMoving : MonoBehaviour
     private bool isActivated = false;
 
     public GameObject collisionSound;
-    public Collider boundaryCollider;
-    public bool playerInArea = false;
-
-    private Vector3 randomDirection;
-    private Quaternion targetRotation;
-
 
     // Start is called before the first frame update
     void Start()
@@ -38,48 +32,23 @@ public class MinotaurMoving : MonoBehaviour
 
         gameOverPanel.SetActive(false);
         collisionPanel.SetActive(false);
-        collisionSound.SetActive(false);
-
-        GenerateRandomDirection();
+        collisionSound.SetActive(false);  
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerTransform != null && playerInArea == true)
+        if (playerTransform != null)
         {
             Vector3 directionToPlayer = playerTransform.position - transform.position;
             Vector3 moveDirection = directionToPlayer.normalized;
 
-            //rotating towards the direction of the player
+            // rotating towards the direction of the player
             Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-            //auto moving the minotaur towards the player
+            // auto moving the minotaur towards the player
             transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
-        }
-        else if (playerInArea == false)
-        {
-            targetRotation = Quaternion.LookRotation(randomDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
-            // Move in the current random direction
-            transform.Translate(randomDirection * moveSpeed * Time.deltaTime);
-
-            // Optionally, change direction at random intervals
-            if (Random.Range(0f, 1f) < 0.02f) // Change direction with a 2% chance per frame
-            {
-                GenerateRandomDirection();
-            }
-        }
-
-        if (!boundaryCollider.bounds.Contains(transform.position))
-        {
-            //if it's outside, clamp the position to stay inside the boundary
-            Vector3 clampedPosition = transform.position;
-            clampedPosition.x = Mathf.Clamp(clampedPosition.x, boundaryCollider.bounds.min.x, boundaryCollider.bounds.max.x);
-            clampedPosition.z = Mathf.Clamp(clampedPosition.z, boundaryCollider.bounds.min.z, boundaryCollider.bounds.max.z);
-            transform.position = clampedPosition;
         }
     }
 
@@ -87,7 +56,7 @@ public class MinotaurMoving : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //reset positions if collision happens
+            // Reset positions if collision happens
             other.GetComponent<SimpleSampleCharacterControl>().transform.position = other.GetComponent<SimpleSampleCharacterControl>().startPosition.position;
             transform.position = monsterStartPos.position;
 
@@ -101,16 +70,18 @@ public class MinotaurMoving : MonoBehaviour
                 isActivated = true;
                 ActivateForDuration();
             }
-
+            
 
             if (collisionCount >= maxCollisions)
             {
+                // Implement game over logic here
                 Debug.Log("Game Over");
+                // You might want to call a function to show game over UI or reset the scene
                 Time.timeScale = 0;
                 gameOverPanel.SetActive(true);
             }
         }
-    }   
+    }
 
     private void ActivateForDuration()
     {
@@ -124,11 +95,5 @@ public class MinotaurMoving : MonoBehaviour
         collisionPanel.SetActive(false);
         collisionSound.SetActive(false);
         isActivated = false;
-    }
-
-    void GenerateRandomDirection()
-    {
-        // Generate a new random direction
-        randomDirection = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)).normalized;
     }
 }
