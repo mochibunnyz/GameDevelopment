@@ -34,6 +34,9 @@ public class TutorialManager : MonoBehaviour
 
     private void ShowCanvas(int index)
     {
+        // Pause the game when a tutorial canvas is shown
+        Time.timeScale = 0;
+
         for (int i = 0; i < tutorialCanvases.Length; i++)
         {
             tutorialCanvases[i].SetActive(i == index);
@@ -47,5 +50,18 @@ public class TutorialManager : MonoBehaviour
         {
             canvas.SetActive(false);
         }
+    
+        // Only resume the game if it's not paused
+        if (!PauseMenuController.isPaused)
+        {
+            Time.timeScale = 1;
+        }
+}
+
+    // New method to open the first tutorial canvas
+    public void OpenFirstCanvas()
+    {
+        currentIndex = 0;  // Reset to the first canvas
+        ShowCanvas(currentIndex);
     }
 }
