@@ -27,7 +27,7 @@ public class PuzzleController4 : MonoBehaviour
     int Attempts = 3;
 
     public void CodeFunction(string Numbers)
-    {
+    {   //code to get the allow the user to key in numbers
         NrIndex++;
         Nr = Nr + Numbers;
         UiText.text = Nr;
@@ -45,7 +45,7 @@ public class PuzzleController4 : MonoBehaviour
 
         }
         else if (Nr != Code)
-        {
+        {   //When the input code does not match the code to be solved, the user would have used one attempt which will count each time there is a wrong input
             UiText.text = "Try again";
             StartCoroutine(PuzzleWrong());
             WrongCounter++;
@@ -54,10 +54,10 @@ public class PuzzleController4 : MonoBehaviour
         }
 
         if (Nr != Code & WrongCounter == 3 & Case == 0)
-        {
-            UiText.text = "All Attempts used";
+        {  // Case 0 where the user and entered the wrong passcode three times and the puzzle is reset 
+            UiText.text = "Puzzle reset";
             Code = "581";
-            TheCode = "QVU";
+            TheCode = "Q V U";
             CodeText.text = TheCode;
             OnSceneCode_Text.text = TheCode;
             WrongCounter = 0;
@@ -69,10 +69,10 @@ public class PuzzleController4 : MonoBehaviour
 
         }
         if (Nr != Code & WrongCounter == 3 & Case == 1)
-        {
-            UiText.text = "All Attempts used";
+        {   // Case 1 where the user and entered the wrong passcode six times and the puzzle is reset 
+            UiText.text = "Puzzle reset";
             Code = "102";
-            TheCode = "UEW";
+            TheCode = "U E W";
             CodeText.text = TheCode;
             OnSceneCode_Text.text = TheCode;
             WrongCounter = 0;
@@ -82,21 +82,22 @@ public class PuzzleController4 : MonoBehaviour
 
         }
         if (Nr != Code & WrongCounter == 3 & Case == 2)
-        {
+        {   // Case 2 where the user and entered the wrong passcode nine times and the puzzle is reset 
             UiText.text = "All Attempts used";
             Code = "810";
-            TheCode = "VUE";
+            TheCode = "V U E";
             CodeText.text = TheCode;
             OnSceneCode_Text.text = TheCode;
             WrongCounter = 0;
             Case = 0;
+            //Set the case to zero so that the puzzle will not stop if the player keeps getting it wrong as he will go from case 0 to 1 to 2 and back to 0
             Attempts = 3;
             AttemptText.text = "Attempts left: " + Attempts;
 
         }
     }
     public void Destroy()
-    {
+    {  //Destroy the gameobjects and canvas so that the player is able to get the treasure chest
         Destroy(KeyPad);
         Destroy(Sign);
         Destroy(Fences);
@@ -104,19 +105,19 @@ public class PuzzleController4 : MonoBehaviour
         Destroy(ImageBackground);
     }
     private IEnumerator PuzzleSolved()
-    {
+    {  //added delay so that the player knows that they have solved the puzzle
         yield return new WaitForSeconds(2);
         KeypadCanvas.enabled = false;
     }
 
     private IEnumerator PuzzleWrong()
-    {
+    {   //auto clear the passcode they have typed in wrongly
         yield return new WaitForSeconds(1);
         Delete();
     }
 
     public void Delete()
-    {
+    { //Delete function to remove what they have written that they may feel is wrong on the passcode
         NrIndex++;
         Nr = null;
         UiText.text = Nr;
