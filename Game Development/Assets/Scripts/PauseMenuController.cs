@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenuController : MonoBehaviour
 {
     public GameObject pauseMenuPanel;
-    public GameObject tutorialManager; // Drag your TutorialManager GameObject here
+    public TutorialManager tutorialManager; // Directly reference the TutorialManager script
     public static bool isPaused = false;  // This is a static variable
 
     void Update()
@@ -40,14 +40,27 @@ public class PauseMenuController : MonoBehaviour
 
     public void OpenTutorial()
     {
-        // Call OpenFirstCanvas instead of ShowTutorial
-        tutorialManager.GetComponent<TutorialManager>().OpenFirstCanvas();
+        tutorialManager.OpenFirstCanvas();
     }
 
     public void QuitToMainMenu()
     {
         Time.timeScale = 1;
-        // Load the main menu scene. Replace "MainMenuScene" with the name of your main menu scene.
-        SceneManager.LoadScene("MainMenu");
+        StartCoroutine(LoadMainMenu());
+    }
+
+    IEnumerator LoadMainMenu()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+        // Now the main menu is loaded, so we can access its components
+        FindObjectOfType<MenuController>().ReinitializeMenu();
+
+        // Optionally, unload the game scene if you no longer need it
+        SceneManager.UnloadSceneAsync("Main Scene");
     }
 }

@@ -5890,7 +5890,7 @@ GameObject:
   m_Component:
   - component: {fileID: 178976580}
   m_Layer: 0
-  m_Name: Puzzle5 (1)
+  m_Name: Puzzle5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37957,6 +37957,7 @@ MonoBehaviour:
   - {fileID: 1877603920}
   - {fileID: 1800999267}
   - {fileID: 398632200}
+  wasGamePaused: 0
 --- !u!4 &1074152003
 Transform:
   m_ObjectHideFlags: 0
@@ -54277,6 +54278,7 @@ GameObject:
   - component: {fileID: 1505962916}
   - component: {fileID: 1505962915}
   - component: {fileID: 1505962914}
+  - component: {fileID: 1505962917}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -54334,6 +54336,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1505962917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505962913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d283202ed180b840acb250e9b3da125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1506212371 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 497570, guid: 99a48108c5a1932488c06e519f6097f4, type: 3}
@@ -69479,7 +69493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuPanel: {fileID: 349651127}
-  tutorialManager: {fileID: 1074152001}
+  tutorialManager: {fileID: 1074152002}
 --- !u!224 &1916668827
 RectTransform:
   m_ObjectHideFlags: 0
