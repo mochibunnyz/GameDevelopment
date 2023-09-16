@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
-public class Passcode : MonoBehaviour
+public class PuzzleController4 : MonoBehaviour
 {
     public Canvas KeypadCanvas;
     public GameObject KeyPad;
