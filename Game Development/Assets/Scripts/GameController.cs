@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-            if (gameStarted)
+        if (gameStarted)
         {
             if (currentTime > 0)
             {
@@ -48,8 +48,7 @@ public class GameController : MonoBehaviour
             {
                 GameOver();
             }
-    }
-        
+        }
     }
 
     public void GameWin()
