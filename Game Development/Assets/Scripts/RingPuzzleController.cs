@@ -66,25 +66,25 @@ public class RingPuzzleController : MonoBehaviour
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, mousePosition, null, out Vector2 localPoint);
         float clickDistanceFromCenter = Vector2.Distance(localPoint, centerOfRingsLocalPosition);
 
-        bool hasRingBeenRotated = false; // Flag to check if any ring was rotated during this click
-
         for (int i = 0; i < rings.Length; i++)
         {
             float innerRadius = GetInnerRadius(i);
             float outerRadius = GetOuterRadius(i);
             if (clickDistanceFromCenter > innerRadius && clickDistanceFromCenter < outerRadius)
             {
-                rings[i].rectTransform.Rotate(Vector3.forward * rotationAngle);
-                hasRingBeenRotated = true;
+                if(CanRotateRing(rings[i]))
+                {
+                    PlayRotationSound();
+                    rings[i].rectTransform.Rotate(Vector3.forward * rotationAngle);
+                }
             }
         }
+    }
 
-        // If a ring has been rotated, play the sound
-        if (hasRingBeenRotated)
-        {
-            PlayRotationSound();
-        }
-}
+    bool CanRotateRing(RawImage ring)
+    {
+        return true;
+    }
 
     // New function to play the rotation sound.
     private void PlayRotationSound()
