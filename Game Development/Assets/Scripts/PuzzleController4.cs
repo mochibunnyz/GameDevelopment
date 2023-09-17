@@ -27,7 +27,7 @@ public class PuzzleController4 : MonoBehaviour
     int Attempts = 3;
 
     public void CodeFunction(string Numbers)
-    {   //code to get the allow the user to key in numbers
+    {   //code to allow the user to key in numbers
         NrIndex++;
         Nr = Nr + Numbers;
         UiText.text = Nr;
@@ -36,7 +36,7 @@ public class PuzzleController4 : MonoBehaviour
     public void Enter()
     {
         if (Nr == Code)
-        {
+        {  //check if the puzzle on the input keypad matches the code and destroy function will kick in to free the chest
             UiText.text = "Correct";
             StartCoroutine(PuzzleSolved());
             Cursor.visible = false;
@@ -54,7 +54,7 @@ public class PuzzleController4 : MonoBehaviour
         }
 
         if (Nr != Code & WrongCounter == 3 & Case == 0)
-        {  // Case 0 where the user and entered the wrong passcode three times and the puzzle is reset 
+        {  // Case 0 where the user  entered the wrong passcode three times and the puzzle is reset, it will change the code in the text as well as attempts
             UiText.text = "Puzzle reset";
             Code = "581";
             TheCode = "Q V U";
@@ -69,7 +69,7 @@ public class PuzzleController4 : MonoBehaviour
 
         }
         if (Nr != Code & WrongCounter == 3 & Case == 1)
-        {   // Case 1 where the user and entered the wrong passcode six times and the puzzle is reset 
+        {   // Case 1 where the user and entered the wrong passcode six times and the puzzle is reset, it will change the code in the text as well as attempts 
             UiText.text = "Puzzle reset";
             Code = "102";
             TheCode = "U E W";
@@ -82,7 +82,7 @@ public class PuzzleController4 : MonoBehaviour
 
         }
         if (Nr != Code & WrongCounter == 3 & Case == 2)
-        {   // Case 2 where the user and entered the wrong passcode nine times and the puzzle is reset 
+        {   // Case 2 where the user and entered the wrong passcode nine times and the puzzle is reset, it will change the code in the text as well as attempts 
             UiText.text = "All Attempts used";
             Code = "810";
             TheCode = "V U E";
@@ -90,7 +90,7 @@ public class PuzzleController4 : MonoBehaviour
             OnSceneCode_Text.text = TheCode;
             WrongCounter = 0;
             Case = 0;
-            //Set the case to zero so that the puzzle will not stop if the player keeps getting it wrong as he will go from case 0 to 1 to 2 and back to 0
+            //Set the case to zero so that the puzzle will not stop if the player keeps getting it wrong as he will go in a loop from case 0 to 1 to 2 and back to 0
             Attempts = 3;
             AttemptText.text = "Attempts left: " + Attempts;
 
