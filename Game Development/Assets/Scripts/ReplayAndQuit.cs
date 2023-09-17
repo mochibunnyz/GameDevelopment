@@ -1,5 +1,6 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System.Collections;
 
 public class ReplayAndQuit : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class ReplayAndQuit : MonoBehaviour
     private void OnEnable()
     {
         Time.timeScale = 0; // Pause the game
+    }
+
+    // This method is called when the object becomes disabled or inactive
+    private void OnDisable()
+    {
+        Time.timeScale = 1; // Unpause the game
     }
 
     public void ReplayGame()
