@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class GameController : MonoBehaviour
 
     public float levelTime = 120.0f;
     private float currentTime;
-    public Text timerText;
+    public TextMeshProUGUI timerText;
     public GameObject gameOverPanel;
     public bool gameStarted = false;
 
@@ -42,7 +43,7 @@ public class GameController : MonoBehaviour
                 int seconds = Mathf.FloorToInt(currentTime - minutes * 60);
                 string formattedTime = string.Format("{0:0}:{1:00}", minutes, seconds);
 
-                timerText.text = "Time Remaining: " + formattedTime;
+                timerText.text = "Time: " + formattedTime;
             }
             else
             {

@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SimpleSampleCharacterControl : MonoBehaviour
 {
     public Transform startPosition;
     public Transform tilePuzzleResetPosition;
     public static int numberOfTreasures;
-    public Text treasureText;
+    public TextMeshProUGUI treasureText;
     public static int numberOfLives;
-    public Text livesText;
+    public TextMeshProUGUI livesText;
 
     private float originalMoveSpeed;
     public Collider boundaryCollider;
