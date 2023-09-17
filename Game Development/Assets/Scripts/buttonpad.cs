@@ -23,6 +23,12 @@ public class buttonpad : MonoBehaviour
 
         public GameObject treasureChest;
 
+        public GameObject resetCanvas; // Reference to the Canvas GameObject you want to show.
+        private bool showingResetCanvas = false;
+        private float resetCanvasDuration = 3.0f;
+        private float resetCanvasTimer = 0.0f;
+
+
         public bool PuzzleSolved {get {return puzzleSolved;}}
         public event Action OnPuzzleSolved;
         private bool puzzleSolved = false;
@@ -35,7 +41,15 @@ public class buttonpad : MonoBehaviour
         
         void Update()
         {
-
+                // Check if we should hide the resetCanvas after a certain duration
+                if (showingResetCanvas)
+                {
+                        resetCanvasTimer += Time.deltaTime;
+                        if (resetCanvasTimer >= resetCanvasDuration)
+                        {
+                                HideResetCanvas();
+                        }
+                }
         }
 
         void resetPuzzle()
@@ -43,6 +57,13 @@ public class buttonpad : MonoBehaviour
                 //reset number in character holder
                 charHolder.text = string.Empty;
                 Debug.Log("puzzle reset");
+
+                // Show the resetCanvas
+                showingResetCanvas = true;
+                resetCanvas.SetActive(true);
+
+                // Start the timer for hiding the resetCanvas
+                resetCanvasTimer = 0.0f;
 
         }
 
@@ -151,6 +172,12 @@ public class buttonpad : MonoBehaviour
                     resetPuzzle();
                 }
 
+        }
+
+        void HideResetCanvas()
+        {
+                resetCanvas.SetActive(false);
+                showingResetCanvas = false;
         }
 
 }
