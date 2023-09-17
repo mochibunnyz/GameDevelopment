@@ -11,10 +11,7 @@ public class RingPuzzleController : MonoBehaviour
     [SerializeField] private RawImage[] rings;
     [SerializeField] private RectTransform canvasRectTransform;
     [SerializeField] private GameObject chest;
-    [SerializeField] private AudioClip rotateSound;  // Reference to your rotation sound clip.
-
-    private AudioSource audioSource;  // The component responsible for playing audio.
-
+    
     public bool PuzzleSolved { get { return puzzleSolved; } }
     public event Action OnPuzzleSolved;
     private bool puzzleSolved = false;
@@ -27,7 +24,6 @@ public class RingPuzzleController : MonoBehaviour
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();  // Get the AudioSource component.
 
         solvedRotations = new Quaternion[rings.Length];
         for (int i = 0; i < rings.Length; i++)
@@ -72,26 +68,8 @@ public class RingPuzzleController : MonoBehaviour
             float outerRadius = GetOuterRadius(i);
             if (clickDistanceFromCenter > innerRadius && clickDistanceFromCenter < outerRadius)
             {
-                if(CanRotateRing(rings[i]))
-                {
-                    PlayRotationSound();
-                    rings[i].rectTransform.Rotate(Vector3.forward * rotationAngle);
-                }
+                rings[i].rectTransform.Rotate(Vector3.forward * rotationAngle);
             }
-        }
-    }
-
-    bool CanRotateRing(RawImage ring)
-    {
-        return true;
-    }
-
-    // New function to play the rotation sound.
-    private void PlayRotationSound()
-    {
-        if (rotateSound && audioSource)
-        {
-            audioSource.PlayOneShot(rotateSound);
         }
     }
 
