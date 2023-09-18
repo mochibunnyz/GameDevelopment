@@ -28,8 +28,8 @@ public class ShowPuzzle4 : MonoBehaviour
                 interactionMessage.enabled = false;
                 KeypadCanvas.enabled = true;
                 
-                //lock cursor
-                Cursor.lockState = CursorLockMode.None;
+                
+                
             }
         }
     
@@ -41,8 +41,7 @@ public class ShowPuzzle4 : MonoBehaviour
         KeypadCanvas.enabled = false;
         interactionMessage.enabled = true;
        
-        //Unlock the cursor
-        Cursor.lockState = CursorLockMode.Locked;
+        
     }
 }
 

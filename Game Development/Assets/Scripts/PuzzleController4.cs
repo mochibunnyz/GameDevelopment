@@ -39,7 +39,7 @@ public class PuzzleController4 : MonoBehaviour
         {  //check if the puzzle on the input keypad matches the code and destroy function will kick in to free the chest
             UiText.text = "Correct";
             StartCoroutine(PuzzleSolved());
-            Cursor.visible = false;
+            
             Destroy();
 
 
